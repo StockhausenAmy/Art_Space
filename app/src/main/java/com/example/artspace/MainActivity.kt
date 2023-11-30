@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -18,6 +19,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -54,10 +56,17 @@ fun ArtSpaceScreen() {
         else -> R.drawable.karan_nagpal_12xx5_xhroc_unsplash
     }
 
-    Column {
-        Image(painter = painterResource(id = imageResource), contentDescription = "Art")
+    Column (
+        modifier = Modifier.fillMaxSize(),
+        verticalArrangement = Arrangement.Center
+    ){
         Spacer(modifier = Modifier.height(16.dp))
-        Row {
+        Image(painter = painterResource(id = imageResource), contentDescription = "Art")
+        Spacer(modifier = Modifier.height(20.dp))
+        Row (
+            modifier = Modifier.fillMaxSize(),
+            horizontalArrangement = Arrangement.Center
+        ){
             Button(onClick = {result = DecreaseButton(result)}) {
                 Text("Previous")
             }
